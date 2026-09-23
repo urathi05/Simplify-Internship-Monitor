@@ -24,6 +24,12 @@ load_dotenv()
 app_password = os.getenv("GMAIL_APP_PASSWORD")
 gmail_address = os.getenv("GMAIL_ADDRESS")
 
+if not app_password:
+    raise ValueError("GMAIL_APP_PASSWORD is not set in the environment variables.")
+
+if not gmail_address:
+    raise ValueError("GMAIL_ADDRESS is not set in the environment variables.")
+
 soup = BeautifulSoup(raw_md, "html.parser")
 tables = soup.find_all("table")[:3]
 
