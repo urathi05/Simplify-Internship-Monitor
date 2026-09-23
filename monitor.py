@@ -74,6 +74,8 @@ new_job_ids = current_job_ids - seen_jobs
 new_jobs = [job for job in jobs if job["job_id"] in new_job_ids]
 
 if new_jobs:
+    print(f"Found {len(new_jobs)} new internships.")
+    
     email_message = EmailMessage()
     email_message["Subject"] = "New Internship Opportunities"
     email_message["From"] = "Simplify Internship Monitor <" + gmail_address + ">"
