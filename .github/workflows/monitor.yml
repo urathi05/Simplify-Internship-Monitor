@@ -1,6 +1,5 @@
 name: Simplify Internship Monitor
 
-# Controls when the workflow will run
 on:
   workflow_dispatch:
 
@@ -21,4 +20,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run monitor
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
         run: python monitor.py
